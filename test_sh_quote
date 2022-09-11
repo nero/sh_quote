@@ -1,0 +1,20 @@
+#!/bin/sh
+PROG=${1:-./sh_quote}
+
+run_test() {
+  r=$($PROG "$2"|sed 's/^ *//;s/ *$//')
+  if test "$r" == "$3"; then
+    echo PASS "$1"
+  else
+    echo FAIL "$1"
+    printf "Expected: %s\nGot: %s\n" "$3" "$r"
+  fi
+}
+
+run_test empty "" "''"
+run_test whitespace "Foo Bar" "'Foo Bar'"
+run_test quote "Foo'Bar" "'Foo'\''Bar'"
+run_test newline "Foo
+Bar" "'Foo
+Bar'"
+run_test trailing_space "Foobar " "'Foobar '"
