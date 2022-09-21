@@ -3,7 +3,7 @@ PROG=${1:-./sh_quote}
 
 run_test() {
   r=$($PROG "$2"|sed 's/^ *//;s/ *$//')
-  if test "$r" == "$3"; then
+  if test "$r" = "$3"; then
     echo PASS "$1"
   else
     echo FAIL "$1"
