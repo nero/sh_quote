@@ -36,4 +36,4 @@ Run `make`.
 
 Run `make test`
 
-The test script can also run on arbitrary programs: `./run_sh_quote /path/to/other_program`.
+The test script can also run on arbitrary programs: `./test_sh_quote /path/to/other_program`.
